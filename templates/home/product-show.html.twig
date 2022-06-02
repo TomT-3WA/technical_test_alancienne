@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div>
+		<h1>{{ product.title }}</h1>
+	</div>
+	<button type="button">
+		<a href="{{ path("cart_add", {id: product.id}) }}">
+			<i class="fas fa-cart-plus"></i>
+			<span>{{ (product.priceDutyFree / 100 * product.tva) + product.priceDutyFree / 100 }}€</span>
+		</a>
+		
+	</button>
+	<p>({{ product.priceDutyFree / 100 }}€ HT et {{ product.tva * 100}}% de tva)</p>
+{% endblock body %}

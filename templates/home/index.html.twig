@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    ul li { list-style-type: none; }
+    a { text-decoration: none; color: #fff; }
+    a:hover { color: 000; }
+    .singleProduct { color: #000; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Faites vos courses !</h1>
+	<section class="section-produits">
+		<div class="browse">
+			<div class="produits">
+				{% for singleProduct in products %}
+					<div class="col gallery product">
+						<a class="singleProduct" href="{{ path('product_show', {'id': singleProduct.id}) }}" class="product-unique">{{ singleProduct.title }}
+						</a>
+					</div>
+				{% endfor %}
+                
+			</div>
+		</div>
+	</section>
+</div>
+{% endblock %}
